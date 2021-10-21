@@ -8,13 +8,14 @@ typedef struct node_t {
 	int data;
 } node_t;
 
-void add(node_t head, int data) {
-	node_t *temp = &head;
+void add(node_t *head, int data) {
+	node_t *temp = head;
 
 	if (temp == NULL) {
 		node_t newNode = {.next=NULL, .prev=temp, .data=data};
-		temp.next = &newNode;
+		temp->next = &newNode;
 	} else {
+		temp = temp->next;
 		add(temp, data);
 	}
 }
@@ -23,8 +24,8 @@ void printList(node_t head) {
 	node_t *temp = &head;
 
 	while(temp != NULL) {
-		printf("%d -> ", &temp.data);
-		temp = temp.next;
+		printf("%d -> ", temp->data);
+		temp = temp->next;
 	}
 	printf("\n");
 }
@@ -32,7 +33,7 @@ void printList(node_t head) {
 int main(int argc, char **argv) {
 
 	node_t ll = {.next=NULL, .prev=NULL, .data=7};
-	add(ll, 42);
+	add(&ll, 42);
 	printList(ll);
 
 	return 0;

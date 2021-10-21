@@ -1,5 +1,6 @@
 CFLAGS=-Wall -Wextra -ggdb
-FILES=LinkedList.c
+LIBS=src/*.c
+SRC_FILE=test/testLinkList.c
 
-linkedlist: LinkedList.c
-	$(CC) $(CFLAGS) -o LinkedList LinkedList.c
+linkedlist: $(SRC_FILE) src/LinkedList.c 
+	$(CC) $(CFLAGS) $(LIBS) $(SRC_FILE) -o test/TestLinkedList

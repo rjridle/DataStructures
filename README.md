@@ -3,7 +3,7 @@ Common data structures in C that can be utilized in other projects.
 
 ## Implemented Data Structures
 * Linked List
-* (TODO) Tree
+* Tree
 * (TODO) Red-Black Tree
 
 ## Running Tests
